@@ -54,7 +54,6 @@ status varchar(256) NOT NULL
 
 CREATE TABLE Payment (
 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-accountId int NOT NULL,
 cardId int NOT NULL,
 date DATETIME DEFAULT CURRENT_TIMESTAMP,
 balanceBefore double(10, 2) DEFAULT 0,
@@ -62,7 +61,6 @@ paymentAmount double(10, 2) DEFAULT 0,
 balanceAfter double(10, 2) DEFAULT 0,
 paymentStatusId int NOT NULL,
 beneficiary varchar(256) NOT NULL,
-FOREIGN KEY (accountId) REFERENCES Account (id),
 FOREIGN KEY (cardId) REFERENCES CreditCard (id),
 FOREIGN KEY (paymentStatusId) REFERENCES PaymentStatus (id)
 );

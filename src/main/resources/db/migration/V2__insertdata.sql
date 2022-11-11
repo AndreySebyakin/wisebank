@@ -46,11 +46,11 @@ INSERT INTO PaymentStatus (status) value ('successfully');
 INSERT INTO PaymentStatus (status) value ('insufficientFunds');
 INSERT INTO PaymentStatus (status) value ('cancelled');
 
-INSERT INTO Payment (accountId, cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
-values (1, 1, 3000, 500, 2500, 1, 'MTS');
-INSERT INTO Payment (accountId, cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
-values (1, 2, 2500, 1500, 1000, 1, 'Evroopt');
-INSERT INTO Payment (accountId, cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
-values (2, 3, -1000, -3000, 2000, 1, 'Account refill');
-INSERT INTO Payment (accountId, cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
-values (3, 4, -3000, 10000, -3000, 2, 'Volvo Center');
+INSERT INTO Payment (cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
+values (1, 3000, 500, 2500, 1, 'MTS');
+INSERT INTO Payment (cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
+values (2, 2500, 1500, 1000, 1, 'Evroopt');
+INSERT INTO Payment (cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
+values (3, -1000, -3000, 2000, 1, 'Account refill');
+INSERT INTO Payment (cardId, balanceBefore, paymentAmount, balanceAfter, paymentStatusId, beneficiary)
+values (4, -3000, 10000, -3000, 2, 'Volvo Center');

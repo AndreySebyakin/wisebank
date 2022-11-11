@@ -27,7 +27,7 @@
      <button onclick="" class="button0 button5"> Block account </button>
      <button onclick="" class="button0 button5"> Unblock account </button>
      <button onclick="" class="button0 button5"> Payments history </button>
-     <button onclick="" class="button0 button5"> Return to cards list </button>
+     <button onclick="document.location='<c:url value="/cards"/>'" class="button0 button5"> Return to cards list </button>
 
       <div class="footer">
         <p> &#169 2022, Andrey Sebyakin.</p>

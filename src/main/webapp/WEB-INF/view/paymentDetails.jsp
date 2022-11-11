@@ -16,7 +16,6 @@
       </div>
 
        Payment id: ${payment.id} <br>
-       Account: ${payment.account.id} <br>
        Card: ${payment.creditCard.cardNumber} <br>
        Date: ${payment.date} <br>
        Payment balance before: ${payment.balanceBefore} <br>
@@ -25,8 +24,8 @@
        Payment status: ${payment.paymentStatus.status} <br>
        Payment beneficiary: ${payment.beneficiary} <br>
 
-     <button onclick="" class="button0 button5"> Cancel payment </button>
-     <button onclick="" class="button0 button5"> Return to payment list </button>
+     <button class="button0 button5"> Cancel payment </button>
+     <button onclick="document.location='<c:url value="/payments"/>'" class="button0 button5"> Return to payment list </button>
 
       <div class="footer">
         <p> &#169 2022, Andrey Sebyakin.</p>

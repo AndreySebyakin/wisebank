@@ -11,9 +11,6 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId")
-    private Account account;
-    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cardId")
     private CreditCard creditCard;
     @Column
