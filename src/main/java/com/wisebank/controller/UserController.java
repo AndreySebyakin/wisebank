@@ -1,26 +1,28 @@
 package com.wisebank.controller;
 
-import com.wisebank.model.entity.User;
+import com.wisebank.dto.CreateUserDto;
 import com.wisebank.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
-
-@RestController
+@Controller
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/user/{id}")
-    public User getUser(@PathVariable Integer id){
-        return userService.findById(id);
+    @GetMapping(value = "/showCreateUser")
+    public String showCreateUser(Model model) {
+        model.addAttribute("createUser", new CreateUserDto());
+        return "createUser";
     }
 
-    @GetMapping("/user/example")
-    public List<User> getUserExample(){
-        return userService.findUserByName();
+    @PostMapping(value = "/createUser")
+    public String createUser(@ModelAttribute(value = "createUser") CreateUserDto createUserDto, Model model) {
+        userService.save(createUserDto);
+        return "main";
     }
 }

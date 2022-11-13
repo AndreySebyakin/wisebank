@@ -1,8 +1,11 @@
 package com.wisebank.service.impl;
 
+import com.wisebank.dto.CreateAccountDto;
 import com.wisebank.model.entity.Account;
-import com.wisebank.model.entity.AccountStatus;
+import com.wisebank.model.entity.User;
 import com.wisebank.model.repository.AccountRepository;
+import com.wisebank.model.repository.AccountStatusRepository;
+import com.wisebank.model.repository.UserRepository;
 import com.wisebank.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,26 +17,28 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
+    private final AccountStatusRepository accountStatusRepository;
+    private final UserRepository userRepository;
 
     @Override
     public List<Account> findAll() {
         return accountRepository.findAll();
     }
 
-//    public void deleteAccount(Integer id) {
-//        accountRepository.deleteById(id);
-//    }
+    @Override
+    public void save(CreateAccountDto createAccountDto) {
 
-//    @Override
-//    public void blockAccount(Account accountToBlock) {
-//
-//        if (accountToBlock.getAccountStatus().getStatus().equalsIgnoreCase("activated")) {
-//            accountToBlock.setAccountStatus(accountStatus.getId());
-//        }
-//    }
-//
-//    @Override
-//    public void unblockAccount(Account accountToUnblock) {
-//
-//    }
+        var user = new User();
+        user = userRepository.getReferenceById(createAccountDto.getUserId());
+
+        var account = new Account();
+        account.setAccountBalance(0.0);
+        account.setAccountLimit(createAccountDto.getAccountLimit());
+        account.setAccountStatus(accountStatusRepository.getReferenceById(2));
+        account.setUser(user);
+
+        accountRepository.save(account);
+    }
+
+
 }

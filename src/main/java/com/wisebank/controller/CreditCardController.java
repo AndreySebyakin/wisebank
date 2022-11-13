@@ -13,6 +13,11 @@ public class CreditCardController {
 
     private final CreditCardService creditCardService;
 
+    @GetMapping(value = "/main")
+    public String goToMainPage() {
+        return "main";
+    }
+
     @GetMapping(value = "/cards")
     public String getAllCards(Model model) {
         var cards = creditCardService.getAllCards();

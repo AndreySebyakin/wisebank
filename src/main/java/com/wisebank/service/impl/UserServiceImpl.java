@@ -1,6 +1,10 @@
 package com.wisebank.service.impl;
 
+import com.wisebank.dto.CreateUserDto;
+import com.wisebank.model.entity.Login;
 import com.wisebank.model.entity.User;
+import com.wisebank.model.repository.LoginRepository;
+import com.wisebank.model.repository.RoleRepository;
 import com.wisebank.model.repository.UserRepository;
 import com.wisebank.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +18,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final LoginRepository loginRepository;
+    private final RoleRepository roleRepository;
 
     @Override
     public User findById(Integer id) {
@@ -27,5 +33,21 @@ public class UserServiceImpl implements UserService {
         example.setSurname("Filatov");
         List<User> users = userRepository.findAll(Example.of(example, ExampleMatcher.matchingAll()));
         return users;
+    }
+
+    @Override
+    public void save(CreateUserDto createUserDto) {
+
+        var user = new User();
+        user.setName(createUserDto.getName());
+        user.setSurname(createUserDto.getSurname());
+        user.setRoleId(roleRepository.getReferenceById(1));
+
+        var login = new Login();
+        login.setUserLogin(createUserDto.getUserLogin());
+        login.setPassword(createUserDto.getPassword());
+        login.setUser(user);
+
+        loginRepository.save(login);
     }
 }

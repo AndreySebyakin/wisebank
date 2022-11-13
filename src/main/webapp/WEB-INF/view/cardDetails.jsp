@@ -1,15 +1,5 @@
-<%@ page isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="common/header.jsp" %>
 
-<html>
-  <head>
-    <title> Wise bank. Card details </title>
-    <style><%@include file="/WEB-INF/styles/header-style.css"%></style>
-    <style><%@include file="/WEB-INF/styles/footer-style.css"%></style>
-    <style><%@include file="/WEB-INF/styles/buttons-style.css"%></style>
-  </head>
-
-  <body>
       <div class="header">
         <h1>WISE BANK.</h1>
         <h3>Card details.</h3>
@@ -29,10 +19,4 @@
      <button onclick="" class="button0 button5"> Payments history </button>
      <button onclick="document.location='<c:url value="/cards"/>'" class="button0 button5"> Return to cards list </button>
 
-      <div class="footer">
-        <p> &#169 2022, Andrey Sebyakin.</p>
-        <a href="https://www.linkedin.com/in/andrey-sebyakin/" target="_blank">Contact</a>
-        <a href="mailto:andrey.sebyakin.by@gmail.com">Send email</a>
-      </div>
-  </body>
-</html>
+<%@ include file="common/footer.jsp" %>
