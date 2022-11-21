@@ -11,5 +11,9 @@ public interface UserService {
 
     List<User> findUserByName();
 
+    List<User> findAll();
+
+    void deleteById(Integer id);
+
     void save(CreateUserDto createUserDto);
 }

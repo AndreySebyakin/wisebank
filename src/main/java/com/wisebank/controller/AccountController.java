@@ -22,7 +22,8 @@ public class AccountController {
     }
 
     @PostMapping(value = "/createAccount")
-    public String createAccount(@ModelAttribute(value = "createAccount") CreateAccountDto createAccountDto, Model model) {
+    public String createAccount(@ModelAttribute(value = "createAccount") CreateAccountDto createAccountDto,
+                                Model model) {
         accountService.save(createAccountDto);
         return "main";
     }

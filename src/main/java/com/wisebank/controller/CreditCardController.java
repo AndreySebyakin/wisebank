@@ -1,10 +1,13 @@
 package com.wisebank.controller;
 
+import com.wisebank.dto.CreateCreditCardDto;
 import com.wisebank.service.CreditCardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -30,5 +33,18 @@ public class CreditCardController {
         var card = creditCardService.getCard(id);
         model.addAttribute("card", card);
         return "cardDetails";
+    }
+
+    @GetMapping(value = "/showCreateCreditCard")
+    public String showCreateCreditCard (Model model) {
+        model.addAttribute("createCreditCard", new CreateCreditCardDto());
+        return "createCreditCard";
+    }
+
+    @PostMapping(value = "/createCreditCard")
+    public String createCreditCard(@ModelAttribute(value = "createCreditCard") CreateCreditCardDto createCreditCardDto,
+                                   Model model) {
+        creditCardService.save(createCreditCardDto);
+        return "main";
     }
 }

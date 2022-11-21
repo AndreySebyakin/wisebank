@@ -1,6 +1,9 @@
 <%@ include file="common/header.jsp" %>
 
-  <br>
+  <div class="header">
+    <h1>WISE BANK.</h1>
+    <h3>Create account.</h3>
+  </div>
 
   <c:url value="/createAccount" var="createAccountAction"/>
 

@@ -25,4 +25,11 @@ public class UserController {
         userService.save(createUserDto);
         return "main";
     }
+
+    @GetMapping(value = "/users")
+    public String getAllUsers(Model model) {
+        var users = userService.findAll();
+        model.addAttribute("users", users);
+        return "users";
+    }
 }

@@ -36,6 +36,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
     public void save(CreateUserDto createUserDto) {
 
         var user = new User();

@@ -13,6 +13,7 @@
   <body>
     <ul>
       <li><a href="<c:url value="/main"/>">Main page</a></li>
+      <li><a href="<c:url value="/users"/>">List of users</a></li>
       <li><a href="<c:url value="/cards"/>">List of cards</a></li>
       <li><a href="<c:url value="/payments"/>">List of payments</a></li>
       <li><a href="">Log out</a></li>

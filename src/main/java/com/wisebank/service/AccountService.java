@@ -10,4 +10,6 @@ public interface AccountService {
     List<Account> findAll();
 
     void save(CreateAccountDto createAccountDto);
+
+    void blockAccount(Integer id);
 }

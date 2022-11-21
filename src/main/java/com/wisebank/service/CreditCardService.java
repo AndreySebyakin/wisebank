@@ -1,5 +1,6 @@
 package com.wisebank.service;
 
+import com.wisebank.dto.CreateCreditCardDto;
 import com.wisebank.dto.CreditCardDto;
 import com.wisebank.model.entity.CreditCard;
 
@@ -10,4 +11,6 @@ public interface CreditCardService {
     List<CreditCardDto> getAllCards();
 
     CreditCard getCard(Integer id);
+
+    void save(CreateCreditCardDto createCreditCardDto);
 }

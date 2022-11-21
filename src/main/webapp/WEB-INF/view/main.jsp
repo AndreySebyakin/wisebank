@@ -13,7 +13,7 @@
   <button onclick="document.location='<c:url value="/showCreateAccount"/>'" class="button0 button5"> Create account </button>
   <br>
   <br>
-  <button onclick="document.location='<c:url value="/payments"/>'" class="button0 button5"> Create card </button>
+  <button onclick="document.location='<c:url value="/showCreateCreditCard"/>'" class="button0 button5"> Create card </button>
   <br>
   <br>
 

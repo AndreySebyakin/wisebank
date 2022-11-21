@@ -40,5 +40,13 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.save(account);
     }
 
+    @Override
+    public void blockAccount(Integer id) {
 
+        Account accountForBlock = accountRepository.getReferenceById(id);
+        if (accountForBlock.getAccountStatus().getStatus().equalsIgnoreCase("activated")) {
+            accountForBlock.setAccountStatus(accountStatusRepository.getReferenceById(2));
+            accountRepository.save(accountForBlock);
+        }
+    }
 }

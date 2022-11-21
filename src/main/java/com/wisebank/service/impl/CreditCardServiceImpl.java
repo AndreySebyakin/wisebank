@@ -1,7 +1,10 @@
 package com.wisebank.service.impl;
 
+import com.wisebank.dto.CreateCreditCardDto;
 import com.wisebank.dto.CreditCardDto;
+import com.wisebank.model.entity.Account;
 import com.wisebank.model.entity.CreditCard;
+import com.wisebank.model.repository.AccountRepository;
 import com.wisebank.model.repository.CreditCardRepository;
 import com.wisebank.service.CreditCardService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +18,7 @@ import java.util.List;
 public class CreditCardServiceImpl implements CreditCardService {
 
     private final CreditCardRepository creditCardRepository;
+    private final AccountRepository accountRepository;
 
     @Override
     public List<CreditCardDto> getAllCards() {
@@ -36,5 +40,23 @@ public class CreditCardServiceImpl implements CreditCardService {
     @Override
     public CreditCard getCard(Integer id) {
         return creditCardRepository.getReferenceById(id);
+    }
+
+    @Override
+    public void save(CreateCreditCardDto createCreditCardDto) {
+
+        var account = new Account();
+        account = accountRepository.getReferenceById(createCreditCardDto.getAccountId());
+
+        var creditCard = new CreditCard();
+        creditCard.setCardNumber(createCreditCardDto.getCardNumber());
+        creditCard.setCurrency("USD");
+        creditCard.setValidThruMonth(createCreditCardDto.getValidThruMonth());
+        creditCard.setValidThruYear(createCreditCardDto.getValidThruYear());
+        creditCard.setCvv(createCreditCardDto.getCvv());
+        creditCard.setPin(createCreditCardDto.getPin());
+        creditCard.setAccount(account);
+
+        creditCardRepository.save(creditCard);
     }
 }

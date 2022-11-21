@@ -14,7 +14,7 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @GetMapping("/payments")
-    public String getAllPayments(Model model){
+    public String getAllPayments(Model model) {
         var payments = paymentService.getAllPayments();
         model.addAttribute("payments", payments);
         return "paymentlist";
