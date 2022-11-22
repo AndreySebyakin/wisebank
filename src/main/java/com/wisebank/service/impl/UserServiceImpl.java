@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
         var user = new User();
         user.setName(createUserDto.getName());
         user.setSurname(createUserDto.getSurname());
-        user.setRoleId(roleRepository.getReferenceById(1));
+        user.setRoleId(roleRepository.getReferenceById(2));
         user.setUsername(createUserDto.getUsername());
         user.setPassword(createUserDto.getPassword());
         user.setEnabled(true);
