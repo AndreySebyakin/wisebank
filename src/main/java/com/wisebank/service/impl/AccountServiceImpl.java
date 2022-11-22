@@ -41,12 +41,23 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void blockAccount(Integer id) {
+    public Account blockAccount(Integer id) {
 
         Account accountForBlock = accountRepository.getReferenceById(id);
         if (accountForBlock.getAccountStatus().getStatus().equalsIgnoreCase("activated")) {
-            accountForBlock.setAccountStatus(accountStatusRepository.getReferenceById(2));
+            accountForBlock.setAccountStatus(accountStatusRepository.getReferenceById(1));
             accountRepository.save(accountForBlock);
         }
+        return accountForBlock;
+    }
+
+    @Override
+    public Account unblockAccount(Integer id) {
+        Account accountForUnblock = accountRepository.getReferenceById(id);
+        if (accountForUnblock.getAccountStatus().getStatus().equalsIgnoreCase("blocked")) {
+            accountForUnblock.setAccountStatus(accountStatusRepository.getReferenceById(2));
+            accountRepository.save(accountForUnblock);
+        }
+        return accountForUnblock;
     }
 }

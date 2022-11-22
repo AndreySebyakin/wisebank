@@ -14,7 +14,6 @@
        Payment status: ${payment.paymentStatus.status} <br>
        Payment beneficiary: ${payment.beneficiary} <br>
 
-     <button class="button0 button5"> Cancel payment </button>
      <button onclick="document.location='<c:url value="/payments"/>'" class="button0 button5"> Return to payment list </button>
 
 <%@ include file="common/footer.jsp" %>

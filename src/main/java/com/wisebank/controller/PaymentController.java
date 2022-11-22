@@ -29,4 +29,12 @@ public class PaymentController {
         model.addAttribute("payment", payment);
         return "paymentDetails";
     }
+
+    @Secured("ROLE_ADMIN")
+    @GetMapping(value = "/paymentHistory.card")
+    public String getPaymentsByCard(@RequestParam Integer id, Model model) {
+        var payments = paymentService.getPaymentsByCardId(id);
+        model.addAttribute("payments", payments);
+        return "paymentlist";
+    }
 }

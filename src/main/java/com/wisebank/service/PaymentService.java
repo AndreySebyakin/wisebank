@@ -9,5 +9,7 @@ public interface PaymentService {
 
     List<PaymentDto> getAllPayments();
 
+    List<PaymentDto> getPaymentsByCardId(Integer id);
+
     Payment getPayment(Integer id);
 }

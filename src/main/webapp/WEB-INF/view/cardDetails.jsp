@@ -14,9 +14,9 @@
        Card status: ${card.account.accountStatus.status} <br>
        Card user: ${card.account.user.name} ${card.account.user.surname} <br>
 
-     <button onclick="" class="button0 button5"> Block account </button>
-     <button onclick="" class="button0 button5"> Unblock account </button>
-     <button onclick="" class="button0 button5"> Payments history </button>
+     <button onclick="document.location='<c:url value="/block.account?id=${card.account.id}"/>'" class="button0 button5"> Block account </button>
+     <button onclick="document.location='<c:url value="/unblock.account?id=${card.account.id}"/>'" class="button0 button5"> Unblock account </button>
+     <button onclick="document.location='<c:url value="/paymentHistory.card?id=${card.id}"/>'" class="button0 button5"> Payments history </button>
      <button onclick="document.location='<c:url value="/cards"/>'" class="button0 button5"> Return to cards list </button>
 
 <%@ include file="common/footer.jsp" %>

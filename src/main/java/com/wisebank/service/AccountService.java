@@ -11,5 +11,7 @@ public interface AccountService {
 
     void save(CreateAccountDto createAccountDto);
 
-    void blockAccount(Integer id);
+    Account blockAccount(Integer id);
+
+    Account unblockAccount(Integer id);
 }
