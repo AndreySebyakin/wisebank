@@ -9,7 +9,7 @@
       <button onclick="document.location='<c:url value="/user?id=${user.id}"/>'" class="button0 button5">
       User ID: ${user.id} <br>
       Name and surname: ${user.name} ${user.surname} <br>
-      User role: ${user.roleId.role} <br>
+      User role: ${user.roleId.roles} <br>
       </button> <br>
     </c:forEach>
 

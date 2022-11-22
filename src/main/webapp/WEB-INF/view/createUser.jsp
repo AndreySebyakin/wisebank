@@ -12,7 +12,7 @@
     <br>
     <spring_form:label path="surname">Surname: </spring_form:label> <spring_form:input path="surname"/>
     <br>
-    <spring_form:label path="userLogin">Login: </spring_form:label> <spring_form:input path="userLogin"/>
+    <spring_form:label path="username">Login: </spring_form:label> <spring_form:input path="username"/>
     <br>
     <spring_form:label path="password">Password: </spring_form:label> <spring_form:input path="password"/>
     <br>

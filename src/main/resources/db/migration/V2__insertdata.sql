@@ -1,19 +1,12 @@
-INSERT INTO Role (role) value ('Client');
-INSERT INTO Role (role) value ('Administrator');
+INSERT INTO user_role (roles) value ('ROLE_ADMIN');
+INSERT INTO user_role (roles) value ('ROLE_USER');
 
-INSERT INTO User (name, surname, roleId) values ('Andrey', 'Tarasov', 2);
-INSERT INTO User (name, surname, roleId) values ('Sergey', 'Tunin', 1);
-INSERT INTO User (name, surname, roleId) values ('Vladislav', 'Filatov', 1);
-INSERT INTO User (name, surname, roleId) values ('Tatiana', 'Zova', 1);
-INSERT INTO User (name, surname, roleId) values ('Olya', 'Petrova', 1);
-INSERT INTO User (name, surname, roleId) values ('Velentina', 'Ivanova', 1);
-
-INSERT INTO Login (userLogin, password, userId) values ('andrey', 'fegrge', 1);
-INSERT INTO Login (userLogin, password, userId) values ('sergey', 'ergerg', 2);
-INSERT INTO Login (userLogin, password, userId) values ('vlad', 'etyju', 3);
-INSERT INTO Login (userLogin, password, userId) values ('tanya', 'ukyik', 4);
-INSERT INTO Login (userLogin, password, userId) values ('olya', 'yukyi', 5);
-INSERT INTO Login (userLogin, password, userId) values ('valya', 'yiyly', 6);
+INSERT INTO User (name, surname, roleId, username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked) values ('Andrey', 'Tarasov', 1, 'andrey', '$2a$12$Q6Hn4JoWReF8JMhZVucD7OzVuNqXbDoEkaMtXFFvGih6VvQczOAUK', 1, 1, 1, 1);
+INSERT INTO User (name, surname, roleId, username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked) values ('Sergey', 'Tunin', 2, 'sergey', '$2a$12$3sOtwRMxNWSy9lGfNHugc.nl8psF1x0Dfn//HrzYQ489n5ecmb/0q', 1, 1, 1, 1);
+INSERT INTO User (name, surname, roleId, username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked) values ('Vladislav', 'Filatov', 2, 'vlad', '$2a$12$KD/AI1I9KF8tVvEpDJMKg.UDOqCOeIaNITHk0zPFAGxraNRzdf5m2', 1, 1, 1, 1);
+INSERT INTO User (name, surname, roleId, username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked) values ('Tatiana', 'Zova', 2, 'tanya', '$2a$12$UmWvFvjIEDn9MFbJ604tiOQJUJefE60mvIQuZql2sczCcZxVIUn72', 1, 1, 1, 1);
+INSERT INTO User (name, surname, roleId, username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked) values ('Olya', 'Petrova', 2, 'olya', '$2a$12$qzFu5ccYN1NyWhNx4j7Ab.mUK/t0mxJ5gFwpczBdgDJ1PocQjikHu', 1, 1, 1, 1);
+INSERT INTO User (name, surname, roleId, username, password, enabled, credentials_non_expired, account_non_expired, account_non_locked) values ('Velentina', 'Ivanova', 2, 'valya', '$2a$12$Pw3xjFoNW0XKgVEP9uyLSeBerK7bfqiwid6v.WlhqJDnD7Cr/3Use', 1, 1, 1, 1);
 
 INSERT INTO AccountStatus (status) value ('blocked');
 INSERT INTO AccountStatus (status) value ('activated');

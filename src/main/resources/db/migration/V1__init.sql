@@ -1,6 +1,6 @@
-CREATE TABLE Role (
+CREATE TABLE User_role (
 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-role varchar(256) NOT NULL
+roles varchar(256) NOT NULL
 );
 
 CREATE TABLE User (
@@ -8,15 +8,13 @@ id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 name varchar(256) NOT NULL,
 surname varchar(256) NOT NULL,
 roleId int NOT NULL,
-FOREIGN KEY (roleId) REFERENCES Role (id)
-);
-
-CREATE TABLE Login (
-id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-userLogin varchar(256) NOT NULL,
+username varchar(256) NOT NULL,
 password varchar(256) NOT NULL,
-userId int NOT NULL,
-FOREIGN KEY (userId) REFERENCES User (id)
+enabled BIT(1) NOT NULL,
+credentials_non_expired BIT(1) NOT NULL,
+account_non_expired BIT(1) NOT NULL,
+account_non_locked BIT(1) NOT NULL,
+FOREIGN KEY (roleId) REFERENCES User_role (id)
 );
 
 CREATE TABLE AccountStatus (
